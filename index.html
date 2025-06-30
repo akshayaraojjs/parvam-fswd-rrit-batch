@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Internal CSS -->
+    <style>
+        *{
+            color: blue;
+        }
+        /* This is the CSS comment */
+        /* Syntax for element selector:
+            element-name{
+                property : value;
+            }
+        */
+        /* Syntax for class selector:
+            .class-name{
+                property : value;
+            }
+        */
+        h1{
+            /* color: named_color */
+            /* color: pink; */
+            /* color: rgb() color */
+            /* rgb : red, green, blue */
+            /* 0 - 255 */
+            /* color: rgb(255,150,210); */
+            /* rgba() but a stands for alpha*/ 
+            /* color: rgba(180,150,210,0.9); */
+            /* hex code - #hex-number */
+            color: #a5ffcb;
+        }
+        .heading-1{
+            color: yellow;
+            background-color: rgb(255, 200, 150);
+        }
+        #first-heading{
+            color: deeppink;
+        }
+        /* Id selector > Class selector > Element selector*/
+        h2{
+            color: chartreuse;
+        }
+        p{
+            color: darkgoldenrod;
+        }
+        .para{
+            color: aqua;
+        }
+        .list-item{
+            color: darkgreen;
+        }
+        #imp-para{
+            color: darkmagenta;
+        }
+        .main-heading{
+            background-color: blueviolet;
+            /* border-width: 10px; */
+            /*solid | double | dashed | dotted | groove | ridge | none; */
+            /* border-style: ridge;
+            border-color: brown; */
+            /* Shorthand property */
+            /* Syntax: border: width style color */
+            border: 10px ridge brown;
+            /* border for different directions */
+            /* border-top: 5px solid blue;
+            border-bottom: 20px dotted lightgreen;
+            border-left: 10px double red;
+            border-right: 15px dashed pink; */
+            /* border-radius: 50px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px; */
+            padding: 50px 40px 30px 20px;
+            /* Single value: all sides */
+            /* Two Values: opposite sides (first value: top & bottom), (second value: right & left) */
+            /* Three Values: opposite sides (first value: top), (second value: right & left), (third value: bottom) */
+            /* Four Values: Clockwise direction (first value: top), (second value: right), (third value: bottom), (fourth value: left) */
+            /* padding-top: 20px ;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 18px; */
+            margin: 30px 20px 10px 15px;
+        }
+    </style>
+    <!-- External CSS has been linked here -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="heading-1 main-heading" id="first-heading">This is a heading</h1>
+    <!-- Inline CSS -->
+    <h2>This is a heading</h2>
+    <h3>This is a heading</h3>
+    <h4>This is a heading</h4>
+    <h5 style="color: red;">This is a heading</h5>
+    <h6>This is a heading</h6>
+    <p class="para">There are 3 types of CSS:</p>
+    <ul>
+        <li class="list-item">Internal CSS</li>
+        <li>External CSS</li>
+        <li class="list-item">Inline CSS</li>
+    </ul>
+    <p>Internal CSS: It is written within HTML document using style tag</p>
+    <p class="list-item">External CSS: It is written in the separate CSS file</p>
+    <p id="imp-para">Inline CSS: It is written within the HTML tags using style attribute</p>
+    <h2 class="main-heading">We have Selectors in CSS for applying styles to the target element</h2>
+    <p>We can use:</p>
+    <ul>
+        <li>Element Selector - Just use element directly</li>
+        <li>Class Selector - Use (.)class-name</li>
+        <li>ID Selector - Use (#)id-name</li>
+        <li>Universal Selector - Use (*)</li>
+    </ul>
+    <script>
+        // This is a JS comment
+    </script>
+</body>
+</html>
+
+<!-- binary: 0, 1 -->
+ <!-- octal: 0 - 7
+ decimal: 0 - 9
+ hexadecimal - 0 - 9 & A - F  -->
