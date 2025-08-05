@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error-msg {
+        color: red;
+        font-size: 0.9em;
+      }
+
+      input.error-border {
+        border: 2px solid red;
+      }
+
+      input {
+        margin-bottom: 5px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <div>
+        <label>Username:</label>
+        <input type="text" id="username" />
+        <span id="usernameError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input type="text" id="email" />
+        <span id="emailError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Phone:</label>
+        <input type="text" id="phone" />
+        <span id="phoneError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" id="password" />
+        <span id="passwordError" class="error-msg"></span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (e) {
+          let isValid = true;
+
+          // Helper function to set error
+          function setError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + "Error");
+            errorSpan.textContent = message;
+            field.classList.add("error-border");
+            isValid = false;
+            console.log(fieldId, " is throwing the error", isValid);
+          }
+
+          // Helper function to clear error
+          function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + "Error");
+            errorSpan.textContent = "";
+            field.classList.remove("error-border");
+          }
+
+          // Username validation
+          const username = document.getElementById("username").value.trim();
+          const usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
+          if (username === "") {
+            setError("username", "Username is required.");
+          } else if (!usernameRegex.test(username)) {
+            setError(
+              "username",
+              "5–15 chars, letters, numbers, underscores only."
+            );
+          } else {
+            clearError("username");
+          }
+
+          // Email validation
+          const email = document.getElementById("email").value.trim();
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+          if (email === "") {
+            setError("email", "Email is required.");
+          } else if (!emailRegex.test(email)) {
+            setError("email", "Enter a valid email address. Ex: abc@gmail.com");
+          } else {
+            clearError("email");
+          }
+
+          // Phone number validation
+          const phone = document.getElementById("phone").value.trim();
+          const phoneRegex = /^[6-9]\d{9}$/;
+          if (phone === "") {
+            setError("phone", "Phone number is required.");
+          } else if (!phoneRegex.test(phone)) {
+            setError(
+              "phone",
+              "Enter a valid 10-digit number (starts with 6–9)."
+            );
+          } else {
+            clearError("phone");
+          }
+
+          // Password validation
+          const password = document.getElementById("password").value.trim();
+          const hasMinLength = password.length >= 8;
+          const hasUpper = /[A-Z]/.test(password);
+          const hasLower = /[a-z]/.test(password);
+          const hasDigit = /\d/.test(password);
+          const hasSpecial = /[@$!%*#?&]/.test(password);
+
+          if (password === "") {
+            setError("password", "Password is required.");
+          } else if (!hasMinLength) {
+            setError(
+              "password",
+              "Password must be at least 8 characters long."
+            );
+          } else if (!hasUpper) {
+            setError(
+              "password",
+              "Password must include at least one uppercase letter."
+            );
+          } else if (!hasLower) {
+            setError(
+              "password",
+              "Password must include at least one lowercase letter."
+            );
+          } else if (!hasDigit) {
+            setError("password", "Password must include at least one digit.");
+          } else if (!hasSpecial) {
+            setError(
+              "password",
+              "Password must include one special character (@$!%*#?&)."
+            );
+          } else {
+            clearError("password");
+          }
+
+          // Prevent form submission if any field is invalid
+          if (!isValid) {
+            e.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>

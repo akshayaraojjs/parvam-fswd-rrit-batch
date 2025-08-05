@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error-msg {
+        color: red;
+        font-size: 0.9em;
+        margin-left: 10px;
+      }
+      input {
+        margin-bottom: 5px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <div>
+        <label>Username:</label>
+        <input type="text" id="username" />
+        <span id="usernameError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input type="text" id="email" />
+        <span id="emailError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Phone Number:</label>
+        <input type="text" id="phone" />
+        <span id="phoneError" class="error-msg"></span>
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" id="password" />
+        <span id="passwordError" class="error-msg"></span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+        // text = "    Akshay   "
+        // console.log(text);
+        // console.log(text.trim());
+      // Username: 5–15 characters, only letters, numbers, underscores
+      document.getElementById("username").addEventListener("blur", function () {
+        const username = this.value.trim();  // trim() method is used to remove the whitespaces
+        // const regex = /^[a-zA-Z0-9_]{5,15}$/;
+        const regex = /^[a-zA-Z][a-zA-Z0-9_]{4,14}$/;
+        const error = document.getElementById("usernameError");
+
+        console.log(regex.test(username));
+
+        if (username === "") {
+          error.textContent = "Username is required.";
+        } else if (!regex.test(username)) {
+          error.textContent = "5–15 chars; letters, numbers, underscores only.";
+        } else {
+          error.textContent = "";
+        }
+      });
+
+      // Email: Valid format
+      document.getElementById("email").addEventListener("blur", function () {
+        const email = this.value.trim();
+        const regex = /^[a-zA-Z0-9_]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        const error = document.getElementById("emailError");
+
+        if (email === "") {
+          error.textContent = "Email is required.";
+        } else if (!regex.test(email)) {
+          error.textContent = "Enter a valid email (e.g., abc@example.com).";
+        } else {
+          error.textContent = "";
+        }
+      });
+
+      // Phone: 10 digits only (Indian format)
+      document.getElementById("phone").addEventListener("blur", function () {
+        const phone = this.value.trim();
+        const regex = /^[6-9]\d{9}$/;
+        const error = document.getElementById("phoneError");
+
+        if (phone === "") {
+          error.textContent = "Phone number is required.";
+        } else if (!regex.test(phone)) {
+          error.textContent =
+            "Enter a valid 10-digit number (starts with 6–9).";
+        } else {
+          error.textContent = "";
+        }
+      });
+
+      // Password: Min 8 chars, at least 1 letter, 1 number, 1 special char
+      //   document.getElementById("password").addEventListener("blur", function () {
+      //     const password = this.value.trim();
+      //     const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$/;
+      //     const error = document.getElementById("passwordError");
+
+      //     if (password === "") {
+      //       error.textContent = "Password is required.";
+      //     } else if (!regex.test(password)) {
+      //       error.textContent =
+      //         "Min 8 chars, include letters, numbers, and 1 special character.";
+      //     } else {
+      //       error.textContent = "";
+      //     }
+      //   });
+      document.getElementById("password").addEventListener("blur", function () {
+        const password = this.value.trim();
+        const error = document.getElementById("passwordError");
+
+        // console.log(password.length)
+
+        const hasMinLength = password.length >= 8;
+        const hasUpper = /[A-Z]/.test(password);
+        const hasLower = /[a-z]/.test(password);
+        const hasDigit = /\d/.test(password);
+        const hasSpecial = /[@$!%*#?&]/.test(password);
+
+        if (password === "") {
+          error.textContent = "Password is required.";
+        } else if (!hasMinLength) {
+          error.textContent = "Password must be at least 8 characters long.";
+        } else if (!hasUpper) {
+          error.textContent =
+            "Password must include at least one uppercase letter (A-Z).";
+        } else if (!hasLower) {
+          error.textContent =
+            "Password must include at least one lowercase letter (a-z).";
+        } else if (!hasDigit) {
+          error.textContent =
+            "Password must include at least one number (0-9).";
+        } else if (!hasSpecial) {
+          error.textContent =
+            "Password must include at least one special character (@$!%*#?&).";
+        } else {
+          error.textContent = ""; // ✅ All checks passed
+        }
+      });
+    </script>
+  </body>
+</html>
