@@ -1,0 +1,120 @@
+What is a Fat Arrow Function?
+
+It is a shorter way to write functions introduced in ES6:
+
+// Traditional function
+function greet(name) {
+  return "Hello " + name;
+}
+
+// Fat Arrow version
+const greet = (name) => "Hello " + name;
+
+Examples of Fat Arrow Functions
+
+No Parameters
+
+const sayHello = () => "Hello World";
+console.log(sayHello()); // Output: Hello World
+
+One Parameter
+
+const square = x => x * x;
+console.log(square(5)); // Output: 25
+
+Multiple Parameters
+
+const add = (a, b) => a + b;
+console.log(add(3, 7)); // Output: 10
+
+With Block Body and `return`
+
+const multiply = (a, b) => {
+  let result = a * b;
+  return result;
+};
+console.log(multiply(4, 5)); // Output: 20
+
+Using in `map()`
+
+let numbers = [1, 2, 3];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // Output: [2, 4, 6]
+
+With `setTimeout()`
+
+setTimeout(() => {
+  console.log("Executed after 2 seconds");
+}, 2000);
+
+Returning an Object
+
+Use parentheses to return an object directly:
+
+const getUser = () => ({ name: "John", age: 25 });
+console.log(getUser());
+// Output: { name: "John", age: 25 }
+
+JavaScript Arrays
+
+An array is a special variable that holds multiple values in a single variable.
+
+Syntax:
+
+let fruits = ["apple", "banana", "cherry"];
+
+Common Array Methods
+
+| Method       | Description                    |
+| ------------ | ------------------------------ |
+| `push()`     | Adds element at the end        |
+| `pop()`      | Removes last element           |
+| `unshift()`  | Adds element at the start      |
+| `shift()`    | Removes first element          |
+| `length`     | Returns number of elements     |
+| `indexOf()`  | Returns index of first match   |
+| `includes()` | Checks if value exists         |
+| `join()`     | Joins all elements into string |
+| `slice()`    | Returns selected elements      |
+| `splice()`   | Adds/removes elements          |
+| `reverse()`  | Reverses array order           |
+| `sort()`     | Sorts elements                 |
+
+map(), filter(), reduce()
+
+1. `map()`
+
+Transforms each element and returns a new array.
+
+Example:
+
+let numbers = [1, 2, 3, 4];
+let squared = numbers.map(n => n * n);
+console.log(squared); // [1, 4, 9, 16]
+
+2. `filter()`
+
+Filters elements based on a condition, returns a new array.
+
+Example:
+
+let numbers = [5, 12, 8, 130, 44];
+let filtered = numbers.filter(n => n > 10);
+console.log(filtered); // [12, 130, 44]
+
+3. `reduce()`
+
+Reduces array to a single value by applying a function.
+
+Example:
+
+let numbers = [1, 2, 3, 4];
+let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); // 10
+
+Bonus: `forEach()`
+
+Iterates through array, but doesn’t return a new array.
+
+let arr = ['a', 'b', 'c'];
+arr.forEach(item => console.log(item.toUpperCase()));

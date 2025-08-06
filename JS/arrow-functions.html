@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Syntax:
+      // function function_name(parameters){
+      // }
+      function add() {
+        sum = 20 + 30;
+        console.log("Sum of 20 & 30:", sum);
+      }
+
+      add();
+
+      //   Alternative way using Arrow Function
+      sum = () => console.log("Sum of 20 & 30 using Arrow Function:", 20 + 30);
+
+      sum();
+
+      function findSum(a, b) {
+        sum = a + b;
+        // console.log("Sum of " + a + " and " + b + ":" + sum);
+        // We can simplify this using Template Literals (``)
+        console.log(`Sum of ${a} and ${b}: ${sum}`);
+      }
+
+      findSum(30, 40);
+
+      //   Alternative way using Arrow Function
+      AddTwoNumbers = (x, y) =>
+        console.log(`Sum of ${x} and ${y} using arrow function: ${x + y}`);
+
+      AddTwoNumbers(30, 70);
+
+      function square(num) {
+        squareNumber = num * num;
+        console.log(`Square of ${num}: ${squareNumber}`);
+      }
+
+      square(5);
+      square(10);
+
+      function sayHello(name) {
+        console.log(`Hello, ${name}`);
+      }
+
+      sayHello("Akshay");
+      sayHello("Chiranth");
+
+      // ES6 - EcmaScript is a alternative name for JavaScript
+      sayHi = (name) => console.log(`Hi, ${name}`);
+      // Syntax for Fat Arrow/Arrow Function:
+      // function_name = (parameters) => function_definition
+
+      sayHi("Akshay");
+      sayHi("Sudeep");
+
+      // Arrow Function for Sqaure
+      findSquare = (num) => {
+        square = num * num;
+        console.log(`Number: ${num}`);
+        console.log(`Square Number: ${square}`);
+      };
+
+      findSquare(5);
+    </script>
+  </body>
+</html>
