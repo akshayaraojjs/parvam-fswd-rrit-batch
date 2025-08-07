@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        numbers = [2, 4, 6, 5, 3, 7, 8, 9];
+        console.log(numbers);
+        // Map method
+        // Map method is used to make some operation with the array and returns the new array with same number of elements
+        squared = numbers.map(n => n * n);
+        console.log(squared);
+        
+        add = numbers.map(n => n + 2*n)
+        console.log(add);
+
+        // Filter Method
+        // Filter method is used filter out the elements based on the given condition and returns the filtered list
+        even = numbers.filter(n => n%2 == 0)
+        console.log(even)
+
+        odd = numbers.filter(n => n%2 != 0)
+        console.log(odd)
+
+        // Reduce method
+        // Reduce method is used to accumulate all the elements which returns the single result
+        total = numbers.reduce((s, n) => s + n, 0);
+        console.log(total);
+
+        average = numbers.reduce((s, n) => (s + n), 0)/numbers.length;
+        console.log(average);
+    </script>
+  </body>
+</html>

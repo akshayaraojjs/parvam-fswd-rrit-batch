@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      name = "Akshay";
+      // length
+      console.log("Number of Characters in the string", name.length);
+      console.log("String converted into Uppercase:", name.toUpperCase());
+      console.log("String converted into Lowercase:", name.toLowerCase());
+      console.log("Character at the given index(3):", name.charAt(3));
+
+      fullName = "Akshay Rao";
+      console.log("Rao is present at this position:", fullName.indexOf("Rao"));
+
+      fullName = "Akshay Rao Jayashankar Rao";
+      console.log(
+        "Rao is present at this position:",
+        fullName.lastIndexOf("Rao")
+      );
+
+      console.log(
+        "Is Rao present in the given name:",
+        fullName.includes("Rao")
+      );
+
+      console.log(
+        "Is the given names starts with Akshay:",
+        fullName.startsWith("Akshay")
+      );
+      console.log(
+        "Is the given names ends with Rao:",
+        fullName.endsWith("Rao")
+      );
+
+      //   slice
+      console.log("Slice the first name:", fullName.slice(-3));
+
+    //   substring (substr)
+        console.log("Father Name:", fullName.substr(11, 15))
+
+        text = "   JavaScript    "
+        console.log("Trimmed the whitespace at the begginning:",text.trimStart())
+
+        console.log("Trimmed the whitespace at the ending:",text.trimEnd())
+
+        console.log("Trimmed the whitespace:",text.trim())
+
+        lang = "I love JavaScript. JavaScript is a very popular language"
+        console.log(lang);
+        console.log(lang.replace("JavaScript", "Python"));
+        console.log(lang.replaceAll("JavaScript", "Python"));
+        
+        languages = "JavaScript, Python, Java, C, C++"
+        console.log(languages.split(", "))
+        languages = `"JavaScript Python Java"`
+        console.log(languages.split(`" "`))
+        languages = `"JavaScript Python Java", "C C++ C#"`
+        console.log(languages.split(`" ",`))
+
+        first = "Java"
+        last = "Script"
+        console.log(first.concat(" ", last))
+        
+        console.log(first.repeat(5))
+
+        number = "10"
+        console.log(number.padStart(10, "10"))
+        console.log(number.padEnd(10, "9"))
+    </script>
+  </body>
+</html>

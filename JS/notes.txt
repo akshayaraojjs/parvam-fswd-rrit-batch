@@ -118,3 +118,136 @@ Iterates through array, but doesn’t return a new array.
 
 let arr = ['a', 'b', 'c'];
 arr.forEach(item => console.log(item.toUpperCase()));
+
+
+String Methods:
+
+1. `length`
+
+Returns the number of characters in the string.
+
+let str = "JavaScript";
+console.log(str.length);  // 10
+
+2. `toUpperCase()`
+
+Converts the string to uppercase.
+
+let str = "hello";
+console.log(str.toUpperCase());  // "HELLO"
+
+3. `toLowerCase()`
+
+Converts the string to lowercase.
+
+let str = "WELCOME";
+console.log(str.toLowerCase());  // "welcome"
+
+4. `charAt(index)`
+
+Returns the character at a specified index.
+
+let str = "Developer";
+console.log(str.charAt(2));  // "v"
+
+5. `indexOf(substring)`
+
+Returns the index of the first occurrence of a substring.
+
+let str = "frontend developer";
+console.log(str.indexOf("developer"));  // 9
+
+6. `lastIndexOf(substring)`
+
+Returns the last occurrence index of a substring.
+
+let str = "learn to code, code every day";
+console.log(str.lastIndexOf("code"));  // 18
+
+7. `includes(substring)`
+
+Checks if a string contains a specified value.
+
+let str = "JavaScript Basics";
+console.log(str.includes("Basics"));  // true
+
+8. `startsWith()` / `endsWith()`
+
+Checks if the string starts/ends with a specific substring.
+
+console.log("Hello World".startsWith("Hello"));  // true
+console.log("Hello World".endsWith("World"));    // true
+
+9. `slice(start, end)`
+
+Extracts a section of a string.
+
+let str = "JavaScript";
+console.log(str.slice(4, 10));  // "Script"
+
+10. `substring(start, end)`
+
+Similar to `slice` but doesn’t accept negative indexes.
+
+let str = "FullStack";
+console.log(str.substring(0, 4));  // "Full"
+
+11. `substr(start, length)`
+
+Returns a portion of the string based on length.
+
+let str = "Programming";
+console.log(str.substr(3, 4));  // "gram"
+
+12. `trim()` / `trimStart()` / `trimEnd()`
+
+Removes whitespace.
+
+let str = "  Hello World  ";
+console.log(str.trim());       // "Hello World"
+console.log(str.trimStart());  // "Hello World  "
+console.log(str.trimEnd());    // "  Hello World"
+
+13. `replace(old, new)` / `replaceAll(old, new)`
+
+Replaces text in the string.
+
+let str = "Hello Java";
+console.log(str.replace("Java", "JS"));      // "Hello JS"
+console.log("a b a".replaceAll("a", "x"));   // "x b x"
+
+14. `split(separator)`
+
+Converts string to array based on separator.
+
+let str = "red,green,blue";
+console.log(str.split(","));  // ["red", "green", "blue"]
+
+15. `concat(str1, str2, ...)`
+
+Combines two or more strings.
+
+let a = "Hello";
+let b = "World";
+console.log(a.concat(" ", b));  // "Hello World"
+
+16. `repeat(n)`
+
+Repeats the string n times.
+
+let str = "Hi ";
+console.log(str.repeat(3));  // "Hi Hi Hi "
+
+17. `match(regex)`
+
+Returns an array of matches based on a regex.
+
+let str = "cat, bat, rat";
+console.log(str.match(/at/g));  // ["at", "at", "at"]
+
+18. `padStart(length, char)` / `padEnd(length, char)`
+
+Pads the string to reach the specified length.
+
+console.log("5".padStart(3, "0"));  // "005"
+console.log("7".padEnd(3, "*"));    // "7"
