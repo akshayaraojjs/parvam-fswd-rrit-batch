@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let now = new Date();
+      console.log(now);
+
+      //   Date("yyyy-mm-dd") - Passing as a String
+      let customDate = new Date("1947-08-15");
+      console.log(customDate);
+
+      //   month will start from 0 for Jan and 11 for Dec
+      //   Date(yyyy, m/mm, d/dd, h/hh, m/mm, s/ss) - Passing as a Number
+      let cusDate = new Date(2001, 4, 15, 15, 30, 0);
+      console.log(cusDate);
+
+      console.log("Current Year:", now.getFullYear());
+      console.log("Current Month:", now.getMonth() + 1); // +1 is added because starting from 0
+      console.log("Current Date:", now.getDate());
+      console.log("Current Day:", now.getDay()); // 0 refers to Sunday, 6 refers to Saturday
+      console.log("Current Time in Hour:", now.getHours());
+      console.log("Current Time in Min:", now.getMinutes());
+      console.log("Current Time in Sec:", now.getSeconds());
+      console.log("Current Time in MilliSec:", now.getMilliseconds());
+      console.log("Current Time:", now.getTime()); // Milliseconds since Jan 1, 1970
+      console.log("-----------------------------");
+
+      console.log("Current Day:", now.toDateString()); // Day Month Date Year
+      console.log("Current Time:", now.toTimeString()); // Hour Minute Second TimeZone
+      console.log("Current Time in ISO:", now.toISOString()); 
+      console.log("Current Date in Local Format:", now.toLocaleDateString()); // dd/mm/yyyy
+      console.log("Current Date in Local Format:", now.toLocaleTimeString()); // hh/mm/ss am/pm
+      console.log("Current Date & Time in Local Format:", now.toLocaleString()); // dd/mm/yyyy, hh/mm/ss am/pm
+
+      console.log(now - customDate)
+    </script>
+  </body>
+</html>

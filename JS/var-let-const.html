@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var acts as a global scope
+        var name; // Declare
+        var name = "Akshay"; // Redeclare and Initialization
+        console.log(name);
+        name = "Ajay"; // Assigning the new value
+        console.log(name);
+
+        function showName(name){
+            console.log("Name within function:",name);
+        }
+
+        showName(name);
+        console.log("Name outside function:",name);
+
+        // let variables can be declared once but can assign value multiple times
+        // let uses block scope
+        let firstName; // Declare the variable using let keyword
+        firstName = "Akshay";
+        console.log(firstName);
+        firstName = "Ajay";
+        console.log(firstName);
+        
+        function showFirstName(firstName){
+            firstName = "Mahantesh";
+            console.log(firstName);
+        }
+
+        showFirstName(firstName);
+        console.log(firstName);
+
+        // const variable should be declared once and initializa there itself, we cannot reassign the values
+        const value = 10;
+        console.log(value);
+    </script>
+</body>
+</html>
