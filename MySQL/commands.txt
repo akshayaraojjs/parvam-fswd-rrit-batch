@@ -1,0 +1,134 @@
+DBMS - Database Management System
+2 Types:
+RDBMS / SQL: Tables
+Name    Email             Phone
+Akshay  akshay@gmail.com  8217751557
+Ajay    ajay@gmail.com    8218851557
+
+ (Ex: MySQL, Oracle SQL, PostgreSQL, SQLite)
+
+NoSQL: Object/JSON 
+{
+    [
+        name: "Akshay",
+        email: "akshay@gmail.com"
+        phone: 8217751557
+    ],
+    [
+        name: "Ajay",
+        email: "ajay@gmail.com"
+        phone: 8218851557
+    ]
+}
+
+(Ex: MongoDB, Firebase)
+
+SQL - Language used for working with Database (Structured Query Language)
+Table: Collection of Rows & Columns
+Database: Collection of Tables
+Primary Key: It is a unique key which should be not repeated. (Int)
+
+Datatypes:
+int, tinyint, bigint, decimal(range), enum('value1','value2'), varchar(size), date, datetime, timestamp, time
+
+Queries:
+1) Creating a DB:
+Syntax: Create Database db_name;
+Ex: CREATE DATABASE practice;
+
+2) Creating a table:
+Syntax: Create Tale table_name(
+    column1 datatype1, 
+    column2 datatype2, 
+    column3 datatype3, 
+    column4 datatype4, 
+);
+
+Ex: Create Table Student(
+    id int Not Null AUTO_INCREMENT,
+    name varchar(50),
+    email varchar(50),
+    phone varchar(10),
+    branch varchar(20),
+    sem int,
+    section varchar(1),
+    college varchar(50),
+    Primary Key(id)
+);
+
+3) Removing the Table:
+Syntax: Drop Table table_name;
+Ex: Drop Table student;
+
+4) Removing the Database:
+Syntax: Drop Database db_name;
+Ex: Drop Table practice;
+
+5) Modify the Table Structure:
+Alter Query:
+    1) Add New Column
+    2) Remove Old Column
+    3) Modify Existing Column
+
+1) Add Column:
+Syntax:
+ALTER TABLE table_name 
+ADD column_name datatype;
+
+Ex: Alter Table student
+Add gender enum('male', 'female', 'others') 
+AFTER phone;
+
+Alter Table student
+Add weight decimal(5,2) Ex: 100.80
+AFTER name;
+
+Alter Table student
+Add DOB date;
+
+Alter Table student
+Add birth_time datetime;
+
+Alter Table student
+Add created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+Date Format - yyyy-mm-dd
+Time Format - hh-mm-ss
+Date Time & Timestamp Format: yyyy-mm-dd hh:mm:ss
+
+2) Drop Column:
+Syntax:
+ALTER TABLE table_name 
+DROP column_name;
+
+Ex: Alter table student
+DROP gender;
+
+3) Modify Column:
+Syntax:
+ALTER TABLE table_name 
+Change column_name column_name datatype;
+
+Resizing:
+ALTER TABLE student 
+CHANGE name name VARCHAR(100);
+
+Renaming the column:
+Alter Table student
+change name full_name varchar(100);
+
+Alter Table student
+change DOB date_of_birth date;
+
+6) Inserting Data into the table:
+Insert Query:
+Syntax:
+Insert into table_name ("column1", "column2", ...) Values ("value1", "value2", ...)
+
+Single Insertion:
+INSERT INTO `student`(`full_name`, `date_of_birth`, `weight`, `email`, `phone`) VALUES ('Akshay',2001-05-15,85.35,'akshay@gmail.com','8217751557')
+
+Bulk / Multiple Insertion:
+INSERT INTO `student`(`full_name`, `date_of_birth`, `weight`, `email`, `phone`) VALUES 
+('Sudeep',2003-05-15,65.35,'sudeep@gmail.com','8217751557'), 
+('Ajay',2002-05-15,75.35,'akshay@gmail.com','8218851557' ); 
