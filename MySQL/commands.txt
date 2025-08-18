@@ -132,3 +132,85 @@ Bulk / Multiple Insertion:
 INSERT INTO `student`(`full_name`, `date_of_birth`, `weight`, `email`, `phone`) VALUES 
 ('Sudeep',2003-05-15,65.35,'sudeep@gmail.com','8217751557'), 
 ('Ajay',2002-05-15,75.35,'akshay@gmail.com','8218851557' ); 
+
+Syntax:
+Update Functionality:
+Update table_name set column = "value" where condition;
+
+Update student set full_name = "Akshay Rao" where full_name = "Akshay";
+
+UPDATE student SET date_of_birth = "2025-05-01" where full_name = "Chiranth";
+
+Fetching Data:
+* denotes all columns
+
+SELECT * FROM `student`;
+
+SELECT * FROM `student` WHERE gender = "male"
+
+SELECT * FROM `student` WHERE gender = "female"
+
+SELECT full_name, date_of_birth FROM `student` WHERE gender = "Male"
+
+SELECT full_name, gender, date_of_birth FROM `student` WHERE date_of_birth > "2003-01-01"
+
+SELECT * FROM `student` WHERE branch = "ECE" and sem = 6
+
+SELECT * FROM `student` WHERE branch = "ECE" and sem = 6 LIMIT 5;
+
+SELECT * FROM `student` WHERE branch = "ECE" and sem = 6 ORDER by full_name ASC LIMIT 5;
+
+SELECT * FROM `student` WHERE branch = "ECE" and sem = 6 ORDER by full_name DESC LIMIT 5;
+
+SELECT COUNT(*) FROM `student` WHERE branch = "ECE" and sem = 6;
+
+Starting with "A":
+SELECT * FROM `student` WHERE full_name LIKE "A%";
+
+Ending with "A":
+SELECT * FROM `student` WHERE full_name LIKE "%A";
+
+Words contain with "An":
+SELECT * FROM `student` WHERE full_name LIKE "%an%";
+
+Checking the character position:
+SELECT * FROM `student` WHERE full_name LIKE "_a%"
+
+SELECT * FROM `student` WHERE full_name LIKE "_ar%"
+
+Starting & ending with "A":
+SELECT * FROM `student` WHERE full_name LIKE "A%A"
+
+Wildcard Characters in MySQL: "%" & "_":
+%	Represents zero or more characters
+_	Represents a single character
+
+To check in group, we use "In" keyword:
+SELECT * FROM `student` WHERE branch In ("EEE", "IT", "ECE")
+
+Between:
+SELECT full_name, weight, branch FROM `student` WHERE weight BETWEEN 50 and 55
+
+SELECT full_name, weight, branch FROM `student` WHERE date_of_birth BETWEEN "2001-01-01" and "2001-06-30"
+
+Negative Between (Not Between):
+SELECT full_name, weight, branch FROM `student` WHERE date_of_birth NOT BETWEEN "2001-01-01" and "2001-06-30"
+
+Average:
+SELECT AVG(weight) FROM `student`
+
+Sum:
+SELECT SUM(weight) FROM `student`
+
+Combination:
+SELECT COUNT(weight), SUM(weight), AVG(weight) FROM `student`
+
+Max:
+SELECT full_name, MAX(weight) FROM `student`
+
+Delete Data:
+
+delete from table_name where condition;
+
+delete from student WHERE full_name = "Sudeep";
+
