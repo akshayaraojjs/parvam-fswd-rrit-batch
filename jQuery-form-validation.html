@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Form Validation</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .error {
+        border: 2px solid red !important;
+      }
+      .valid {
+        border: 2px solid green !important;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="card shadow-lg p-4">
+        <h3 class="mb-4">Registration Form</h3>
+        <form id="myForm">
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+            <span class="text-danger" id="usernameError"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email">
+            <span class="text-danger" id="emailError"></span>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+            <span class="text-danger" id="phoneError"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
+            <span class="text-danger" id="passwordError"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // We will check whether all html elements has been rendered/loaded or not
+      $(document).ready(function () {
+        // Regex patterns
+        const usernameRegex = /^[A-Za-z][A-Za-z0-9_\s\.]{4,14}$/; // 5–15 chars
+        const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+        const phoneRegex = /^[6-9]\d{9}$/; // Indian phone numbers
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$/;
+
+        // Validation function
+        // Need 4 parameters: what value, which comparison, which place, what message 
+        function validateField(input, regex, errorId, message) {
+          let value = input.val().trim();
+          if (value === "") {
+            showError(input, errorId, "This field is required.");
+            return false;
+          } else if (!regex.test(value)) {
+            showError(input, errorId, message);
+            return false;
+          } else {
+            showSuccess(input, errorId);
+            return true;
+          }
+        }
+
+        // Show error with animation
+        // Need 3 parameters: input value, which place, what message
+        function showError(input, errorId, message) {
+          // show red border (error class), remove green border (valid class) 
+          input.addClass("error").removeClass("valid");
+          // show error message given by the user   
+          $("#" + errorId).text(message);
+          input
+            .animate({ marginLeft: "-10px" }, 100)
+            .animate({ marginLeft: "10px" }, 100)
+            .animate({ marginLeft: "0px" }, 100);
+        }
+
+        // Show success
+        // Need 2 parameters, which field, which place
+        function showSuccess(input, errorId) {
+            // remove red border and add green border
+          input.addClass("valid").removeClass("error");
+        //   Remove error message from the given place
+          $("#" + errorId).text("");
+        }
+
+        // Calling the function to validate the input and show error or success message based on the input blur event
+        // Blur event validation
+        $("#username").blur(function () {
+          validateField(
+            $(this),
+            usernameRegex,
+            "usernameError",
+            "Username must start with a letter and be 5–15 chars."
+          );
+        //   console.log("Value given at Username field", $(this));
+        });
+
+        $("#email").blur(function () {
+          validateField(
+            $(this),
+            emailRegex,
+            "emailError",
+            "Enter a valid email (e.g. user@mail.com)."
+          );
+        });
+
+        $("#phone").blur(function () {
+          validateField(
+            $(this),
+            phoneRegex,
+            "phoneError",
+            "Enter a valid 10-digit Indian phone number."
+          );
+        });
+
+        $("#password").blur(function () {
+          validateField(
+            $(this),
+            passwordRegex,
+            "passwordError",
+            "Password must be 8+ chars with upper, lower, digit, and special char."
+          );
+        });
+
+        // Form submit validation
+        $("#myForm").submit(function (e) {
+          e.preventDefault();
+
+        //   Assume that all fields are valid
+          let isValid = true;
+        //   isValid = isValid & validateField
+          isValid &= validateField(
+            $("#username"),
+            usernameRegex,
+            "usernameError",
+            "Username must start with a letter and be 5–15 chars."
+          );
+          isValid &= validateField(
+            $("#email"),
+            emailRegex,
+            "emailError",
+            "Enter a valid email."
+          );
+          isValid &= validateField(
+            $("#phone"),
+            phoneRegex,
+            "phoneError",
+            "Enter a valid 10-digit Indian phone number."
+          );
+          isValid &= validateField(
+            $("#password"),
+            passwordRegex,
+            "passwordError",
+            "Password must be 8+ chars with upper, lower, digit, and special char."
+          );
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+            $("#myForm")[0].reset();
+            $("input").removeClass("valid error"); // reset styles
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

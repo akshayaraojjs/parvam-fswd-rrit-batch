@@ -213,4 +213,3 @@ Delete Data:
 delete from table_name where condition;
 
 delete from student WHERE full_name = "Sudeep";
-
