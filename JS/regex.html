@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sentence = "Kannada is a Dravidian language spoken predominantly in the state of Karnataka in southwestern India, and spoken by a minority of the population in all neighbouring states. It has 44 million native speakers, and is additionally a second or third language for 15 million speakers in Karnataka. It is the official and administrative language of Karnataka. It also has scheduled status in India and has been included among the country's designated classical languages.";
+
+        let regex = /.nat.?/gmi;
+
+        let result = regex.test(sentence);
+
+        let found = sentence.match(regex);
+        console.log(result);
+        console.log(found);
+        console.log(found.length);
+    </script>
+</body>
+</html>

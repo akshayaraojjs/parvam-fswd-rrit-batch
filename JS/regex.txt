@@ -1,0 +1,42 @@
+To practice regex - https://regex101.com/
+Regex - Regular Expressions
+
+Flags:
+i - Case Insensitive
+g - global (To check all matching result) 
+if "g" flag is not included, then first result will be returned
+m - multi-line
+
+[a-z] - Lower Case Alphabets
+[A-Z] - Upper Case Alphabets
+[0-9] - Numbers
+\d - Numbers
+\w - Words (a-z, A-Z, 0-9, _)
+\W - Excluding (a-z, A-Z, 0-9, _)
+\s - whitespace
+\S - Excluding whitespace
+Wildcard character (.) (Dot)
+"." refers anything
+^(caret) - starting with
+$ - ending with
+lazy - ?
+greedy - + and *
+
+? - 0 or 1 occurence
+Ex: at? - "a" is mandatory, "t" is optional with atmost 1 occurence
+
+* - 0 or more occurence
+Ex: at* - "a" is mandatory, but "t" is optional, if occured it can have multiple occurence (no limit)
+
++ - 1 or more occurence
+Ex: at+ - "a & t" both are mandatory, but "t" can have multiple occurance more than one (no limit)
+
+Positive lookahead & Negative lookahead (Pending)
+
+Grouping both uppercase & lowercase characters
+[A-Za-z]
+Grouping both uppercase & lowercase characters & numerical characters
+[A-Za-z0-9]
+
+Pattern Matching:
+1) ".at" - Any words having "at" followed and preceded by anything
